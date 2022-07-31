@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">YazilariAl</string>
+    <string name="result" translatable="true">Result</string>
+    <string name="ImagePreview" translatable="true">"Image Preview "</string>
+    <string name="choosePicture" translatable="true">"Select Image "</string>
+    <string name="permissionDenied" translatable="true">Permission denied</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="choosepicture">"Select Image "</string>
+    <string name="sendfailed">Submission failed!</string>
+    <string name="Whatsappisnotinstalled">Whatsapp is not installed</string>
+    <string name="from">from</string>
+    <string name="developer">Oğulcan KAÇAR</string>
+    <string name="CreatePDF">Create PDF</string>
+    <string name="pageType">Sayfa Type (A4 or A5)</string>
+    <string name="pdfTitle">PDF Title</string>
+    <string name="descriptionPDF">PDF description</string>
+    <string name="pdfAuthor">PDF Author</string>
+    <string name="save">Save</string>
+    <string name="Fillinallfields">Please fill in all fields!</string>
+    <string name="close">Close</string>
+    <string name="createdPDF">PDF is created</string>
+</resources>

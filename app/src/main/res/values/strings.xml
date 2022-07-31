@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">YazilariAl</string>
+    <string name="result" translatable="false">Sonuç</string>
+    <string name="ImagePreview" translatable="false">Resim Önizleme</string>
+    <string name="choosePicture" translatable="false">Resim Seç</string>
+    <string name="permissionDenied" translatable="false">İzin reddedildi</string>
+    <string name="camera">Kamera</string>
+    <string name="gallery">Galeri</string>
+    <string name="choosepicture">Resim seç</string>
+    <string name="sendfailed">Gönderme basarısız!</string>
+    <string name="Whatsappisnotinstalled">Whatsapp yüklü değil</string>
+    <string name="from">from</string>
+    <string name="developer">Oğulcan KAÇAR</string>
+    <string name="CreatePDF">PDF oluştur</string>
+    <string name="pageType">Sayfa Türü (A4 ya da A5)</string>
+    <string name="pdfTitle">PDF başlığı</string>
+    <string name="descriptionPDF">PDF açıklaması</string>
+    <string name="pdfAuthor">PDF yazarı</string>
+    <string name="save">Kaydet</string>
+    <string name="Fillinallfields">Lütfen tüm alanları doldurunuz!</string>
+    <string name="close">Kapat</string>
+    <string name="createdPDF">PDF oluşturuldu</string>
+</resources>
