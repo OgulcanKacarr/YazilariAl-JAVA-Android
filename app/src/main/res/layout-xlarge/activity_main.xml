@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    tools:context=".MainActivity"
+    android:background="@color/colorBlack">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="#fff"
+            app:cardCornerRadius="3dp"
+            app:cardElevation="3dp"
+            app:cardUseCompatPadding="true">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:id="@+id/scroolText">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/result"
+                    android:gravity="center"
+                    android:textColor="@color/colorRed"
+                    android:textSize="30sp" />
+
+                <EditText
+                    android:id="@+id/resultEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:background="@drawable/edittextbackground"
+                    android:autoLink="all"
+                    android:padding="5dp"
+                    android:textColor="#000" />
+            </LinearLayout>
+
+            </ScrollView>
+
+        </androidx.cardview.widget.CardView>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:id="@+id/scroolView"
+        android:layout_marginTop="30dp"
+        android:layout_above="@id/adView"
+        android:layout_below="@id/buttons">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/relative"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@color/colorWhite"
+            android:layout_height="match_parent"
+            android:padding="5dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ImagePreview"
+                android:id="@+id/text"
+                android:gravity="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="30sp" />
+
+            <ImageView
+                android:id="@+id/imageIv"
+                android:layout_below="@+id/text"
+                android:layout_width="match_parent"
+                android:background="@drawable/imagbackground"
+                android:layout_height="300dp"
+                android:layout_centerInParent="true"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cvResult"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/share"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/whatsapp"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:visibility="invisible"></Button>
+
+        <Button
+            android:id="@+id/pdf"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:background="@drawable/pdf"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:visibility="invisible"></Button>
+
+        <Button
+            android:id="@+id/showall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="50dp"
+            android:background="@drawable/edittextbackground"
+            android:gravity="center"
+            android:padding="5pt"
+            android:text="Tümünü göster"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:visibility="invisible"></Button>
+
+    </LinearLayout>
+
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_toLeftOf="@id/fab"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="ca-app-pub-4310209378038401/5504550530">
+    </com.google.android.gms.ads.AdView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:background="@drawable/touchbackground"
+        android:src="@android:drawable/ic_input_add"
+        app:backgroundTint="#34495e"
+        android:layout_alignParentRight="true" />
+
+</RelativeLayout>

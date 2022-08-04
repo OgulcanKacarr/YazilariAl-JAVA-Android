@@ -29,11 +29,14 @@ import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.android.gms.vision.Frame;
 import com.google.android.gms.vision.text.TextBlock;
 import com.google.android.gms.vision.text.TextRecognizer;
@@ -55,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding activityMainBinding;
     private AlertDialog.Builder alertDialog;
-
 
     //ads
     private AdView mAdView;
@@ -261,7 +263,7 @@ public class MainActivity extends AppCompatActivity {
 
     //banner ads
     private void bannerAds() {
-        //bannerads ca-app-pub-4310209378038401/5504550530
+
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
@@ -275,26 +277,32 @@ public class MainActivity extends AppCompatActivity {
     //interstitial ads
     private void ınterstitialAd() {
 
-        //interstital ad ca-app-pub-4310209378038401/3310659704
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ad ca-app-pub-4310209378038401/3310659704");
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
+        AdRequest adRequest = new AdRequest.Builder().build();
 
-        mInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                // Load the next interstitial.
-                mInterstitialAd.loadAd(new AdRequest.Builder().build());
-            }
+        InterstitialAd.load(this,"ad ca-app-pub-4310209378038401/3310659704", adRequest,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        mInterstitialAd = interstitialAd;
 
-        });
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error
+
+                        mInterstitialAd = null;
+                    }
+                });
     }
 
     private void showImageImportDialog() {
 
-        if (mInterstitialAd.isLoaded() && adstatus < 4) {
-            mInterstitialAd.show();
+        if (mInterstitialAd != null && adstatus < 4) {
+            mInterstitialAd.show(MainActivity.this);
             adstatus = adstatus + 1;
             if (adstatus == 10) {
                 adstatus = 0;
@@ -373,6 +381,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case CAMERA_REQUEST_CODE:
                 if (grantResults.length > 0) {
